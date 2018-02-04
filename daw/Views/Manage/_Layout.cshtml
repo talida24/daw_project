@@ -1,0 +1,23 @@
+﻿@{ 
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+
+<<div class="container">
+    <div class="header" style="margin-top: 64px;">
+        <div class="header-two navbar navbar-default" style="background-color:#ffaf1b ">
+            <h1 class="title">profile</h1>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+            @await Html.PartialAsync("_ManageNav")
+
+            @RenderBody()
+        </div>
+    </div>
+
+
+@section Scripts {
+    @RenderSection("Scripts", required: false)
+}
+        

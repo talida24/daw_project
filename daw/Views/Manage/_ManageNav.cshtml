@@ -1,0 +1,11 @@
+﻿@using daw.Views.Manage
+@inject SignInManager<ApplicationUser> SignInManager
+@{
+    var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();
+}
+
+<ul class="container" style="text-align:center">
+    <div class="@ManageNavPages.IndexNavClass(ViewContext)"><a asp-action="Index">Profile</a></div>
+    <div class="@ManageNavPages.ChangePasswordNavClass(ViewContext)"><a asp-action="ChangePassword">Password</a></div>
+</ul>
+

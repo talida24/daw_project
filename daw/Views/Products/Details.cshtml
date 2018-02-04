@@ -1,0 +1,40 @@
+﻿@model daw.Models.Product
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+<div class="container">
+
+    <div class="header" style="margin-top: 64px;">
+        <div class="header-two navbar navbar-default" style="background-color:#ffaf1b ">
+            
+            <h1 class="title">@Html.DisplayFor(model => model.LocationName)</h1>
+            <a asp-action="Index"><i class="fas fa-long-arrow-alt-left" style="margin-left:10px; font-size:30px; color: black;"></i></a>
+
+        </div>
+    </div>
+        <hr />
+
+
+    <div style="text-align:center;">
+
+        <dt style="margin-bottom:5px;color: #e39607;">
+            @Html.DisplayNameFor(model => model.Note)
+        </dt>
+        <dd style="margin-bottom:20px;">
+            @Html.DisplayFor(model => model.Note)
+        </dd>
+        <dt style="margin-bottom:5px; color: #e39607;">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd style="margin-bottom:30px;">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dd style="margin-bottom:20px;">
+            <img src=" @Model.Image " style="width: 100%;" alt="" />
+        </dd>
+
+    </div>

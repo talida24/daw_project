@@ -1,0 +1,41 @@
+﻿@model IEnumerable<daw.Models.Product>
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@{
+    ViewData["Title"] = "Gifts";
+}
+
+
+<div class="container">
+    <div class="header" style="margin-top: 64px;">
+        <div class="header-two navbar navbar-default" style="background-color:#ffaf1b ">
+            <h2 class="title" >Your destination is here!</h2>
+        </div>
+        
+    </div>
+
+    <!--products-->
+    <div class="products">
+        <div class="container">
+            <div id="app">
+                <search></search>
+                <div class="col-md-9 product-model-sec">
+                    <listing></listing>
+                </div>
+                
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+    <!--//products-->
+  </div>
+
+<script>
+    window.User = { 
+        role: '@this.User.IsInRole("admin")',
+        auth: '@SignInManager.IsSignedIn(User)'
+    }
+
+</script>

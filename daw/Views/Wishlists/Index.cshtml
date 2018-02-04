@@ -1,0 +1,70 @@
+﻿@model IEnumerable<daw.Models.Product>
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+
+<div class="container">
+    
+    @{
+        ViewData["Title"] = "Index";
+    }
+    <div class="container">
+
+        <div class="header" style="margin-top: 64px;">
+            <div class="header-two navbar navbar-default" style="background-color:#ffaf1b ">
+                <h1 class="title">your wishlist</h1>
+            </div>
+        </div>
+        <hr />
+
+        <table class="table" >
+            <thead style="text-align: center;">
+                <tr>
+                    <th>
+                        Location Name
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Note)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Description)
+                    </th>
+
+                    <th style="text-align: center;">
+                        @Html.DisplayNameFor(model => model.Image)
+                    </th>
+                    <th>
+                        Tipe
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody style="text-align: center;">
+                @foreach (var item in Model)
+            {
+                    <tr>
+                        <td>
+                            <a href="/Products/Details/@item.Id"> @Html.DisplayFor(modelItem => item.LocationName) </a>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Note)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Description)
+                        </td>
+
+                        <td>
+                            <img style="width:20%; "src="@item.Image">
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Tip)
+                        </td>
+                        <td>
+                            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
